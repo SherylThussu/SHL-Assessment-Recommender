@@ -42,6 +42,9 @@ def health() -> dict:
 def chat(request: ChatRequest) -> ChatResponse:
     messages = [message.model_dump() for message in request.messages]
     latest_text = latest_user_text(messages)
+    
+    print("RAW REQUEST:", request.model_dump())
+    print("MESSAGES:", messages)
     print("LATEST:", repr(latest_text))
     print("OFF_TOPIC:", is_off_topic(latest_text))
     
