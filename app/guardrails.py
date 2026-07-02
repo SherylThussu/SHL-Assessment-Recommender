@@ -92,4 +92,11 @@ def is_off_topic(text: str) -> bool:
     lowered = text.lower()
     return any(keyword in lowered for keyword in OFF_TOPIC_KEYWORDS)
 
+def refusal_reply() -> str:
+    return (
+        "I can help only with selecting, recommending, and comparing SHL "
+        "assessments from the SHL Individual Test Solutions catalog. "
+        "I can't assist with unrelated topics, legal advice, or general hiring advice."
+    )
+
     
