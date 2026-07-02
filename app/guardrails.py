@@ -90,33 +90,6 @@ def is_prompt_injection(text: str) -> bool:
 
 def is_off_topic(text: str) -> bool:
     lowered = text.lower()
+    return any(keyword in lowered for keyword in OFF_TOPIC_KEYWORDS)
 
-    return any(
-        keyword in lowered
-        for keyword in OFF_TOPIC_KEYWORDS
-    )
-
-    # Explicit off-topic requests
-    if any(keyword in lowered for keyword in OFF_TOPIC_KEYWORDS):
-        return True
-
-    # If the user is clearly discussing SHL assessments,
-    # it is NOT off-topic.
-    if any(keyword in lowered for keyword in SHL_CONTEXT_KEYWORDS):
-        return False
-
-    # Very short ambiguous messages should not be refused.
-    # The recommender will ask clarification instead.
-    if len(lowered.split()) <= 5:
-        return False
-
-    # If no SHL context is present, treat it as off-topic.
-    return True
-
-
-def refusal_reply() -> str:
-    return (
-        "I can help only with selecting, recommending, and comparing SHL "
-        "assessments from the SHL Individual Test Solutions catalog. "
-        "I can't assist with unrelated topics, legal advice, or general hiring advice."
-    )
+    
