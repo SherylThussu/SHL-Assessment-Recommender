@@ -89,7 +89,7 @@ def is_prompt_injection(text: str) -> bool:
 
 
 def is_off_topic(text: str) -> bool:
-    lowered = text.lower()
+    return True
 
     # Explicit off-topic requests
     if any(keyword in lowered for keyword in OFF_TOPIC_KEYWORDS):
