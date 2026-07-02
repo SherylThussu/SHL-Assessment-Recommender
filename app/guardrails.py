@@ -12,6 +12,20 @@ OFF_TOPIC_KEYWORDS = [
     "compliance obligation",
     "lawsuit",
     "visa",
+
+     # obvious non-SHL topics
+    "recipe",
+    "pasta",
+    "cook",
+    "cooking",
+    "weather",
+    "movie",
+    "film",
+    "song",
+    "music",
+    "travel",
+    "football",
+    "cricket",
 ]
 
 PROMPT_INJECTION_KEYWORDS = [
